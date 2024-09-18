@@ -1,13 +1,57 @@
-<link rel="stylesheet" href="../css/sim.css">
+<link rel="stylesheet" href="/css/sim.css">
 
 <section id="sim-main" class="">
         <section id="sim-header" class="row justify-content-evenly">
                 <p>Sim Type</p>
                 <div class="row d-flex align-items-center">
-                        <p class="d-flex">Loaded database:</p>
-                        <p class="d-flex">Select new database</p>
+                        <div id="loading-box" class="row d-flex justify-content-center">
+                                <p class="d-flex">Loaded database:</p>
+                        </div>
+                        <div id="selection-box" class="row d-flex justify-content-center">
+                                <div class="dropdown">
+                                        <button id="animaSpdBtn" class="btn-sm btn-secondary dropdown-toggle" type="button" 
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                                Anima One
+                                        </button>
+                                        <ul id="animaSpdList" class="dropdown-menu">   
+                                        </ul>
+                                </div>
+                                <div class="dropdown">
+                                        <button id="animaOneBtn" class="btn-sm btn-secondary dropdown-toggle" type="button" 
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                                Anima One
+                                        </button>
+                                        <ul id="animaOneList" class="dropdown-menu">   
+                                        </ul>
+                                </div>
+                                <div class="dropdown">
+                                        <button id="animaTwoBtn" class="btn-sm btn-secondary dropdown-toggle" type="button" 
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                                Anima Two
+                                        </button>
+                                        <ul id="animaTwoList" class="dropdown-menu">   
+                                        </ul>
+                                </div>
+                                <div class="dropdown">
+                                        <button id="animaThreeBtn" class="btn-sm btn-secondary dropdown-toggle" type="button" 
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                                Anima Three
+                                        </button>
+                                        <ul id="animaThreeLost" class="dropdown-menu">   
+                                        </ul>
+                                </div>
+                                <div class="dropdown">
+                                        <button id="enemyBtn" class="btn-sm btn-secondary dropdown-toggle" type="button" 
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                                Enemy
+                                        </button>
+                                        <ul id="enemyList" class="dropdown-menu">   
+                                        </ul>
+                                </div>
+                        </div>
+
                 </div>
         </section>
 </section>
 
-<script src="/simMain.js"></script>
+<script type="module" src="/js/simMain.js"></script>

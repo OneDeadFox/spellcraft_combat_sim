@@ -1,0 +1,60 @@
+number,name,card_type,rarity,element_type,ability,race,class,hp,atk,def,spd,movement,size,action,wells_added,cards_drawn,treasures_drawn,marker
+1,Gill-Face Brute ,Letchin,Common,Earth,,Undead,Letchin,3,4:4,3:4,2,3,1,2,3,1,,L-1
+2,Rotted Carrier ,Letchin,Common,Earth,Plague 1 (When this unit deals damage to an anima% it becomes infected for 1 turn.),Undead,Letchin,2,3:4,3:4,3,3,1,2,3,1,,L-2
+3,Awakened Letchin,Letchin,Common,Earth,Dash,Human,Letchin,3,3:4,2:4,4,2,1,2,3,1,,L-3
+4,Prolonged Carrier ,Letchin,Common,Earth,When Prolonged Carrier dies% create a size 1 Letchling unit with% 2 HP% 3:4 atk% 3:4 def% 3 spd% 3 move% and 2 actions% it is spawned on Prolonged Carrier's space.,Human,Letchin,2,4:4,3:4,3,3,1,2,5,P1,,L-4
+5,Contagious Runt,Letchin,Common,Earth,When Contagious Runt dies from attack damage% the attacking anima becomes infected for 1 turn. ,Goblin ,Letchin,3,3:4,2:4,3,3,1,2,3,1,,L-5
+6,Goblin Plague Bearer ,Letchin,Common,Earth,Plague 1 (When this unit deals damage to an anima% it becomes infected for 1 turn.),Goblin,Letchin,2,3:4,2:4,3,3,1,2,3,1,,L-6
+7,Deadmans Red Mite,Letchin,Common,Nature,Lethal Aim,Spider,Letchin,1,3:4,2:6,3,3,1,2,4,P1,,L-7
+8,Spore-Ridden Red Mite,Letchin,Common,Nature,Plague 1 (When this unit deals damage to an anima% it becomes infected for 1 turn.),Spider,Letchin,1,4:4,2:6,4,3,1,2,4,,,L-8
+9,Tangled Letch-Crawler,Letchin,Common,Nature,,Human,Letchin,2,3:6,2:6,4,3,1,2,3,P1,,L-9
+10,Deadwood Plague-Bearer,Letchin,Common,Nature,Plague 1 (When this unit deals damage to an anima% it becomes infected for 1 turn.),Human,Letchin,3,4:4,1:6,2,3,1,2,4,1,,L-10
+11,Elven Spore-Flinger,Letchin,Common,Nature,Idle Range 3 (will stop its pursuit 3 spaces away to attack) ,Elf,Letchin,2,2:6,1:6,5,3,1,2,4,P1,,L-11
+12,Pox-Covered Elf,Letchin,Common,Nature,When Pox-Covered Elf dies from attack damage% the attacking anima becomes infected for 1 turn.,Elf,Letchin,1,4:4,2:6,5,3,1,2,1,1,,L-12
+13,Pox-Covered Imp,Letchin,Common,Fire,"Flight
+When Pox-Covered Imp dies from attack damage% the attacking anima becomes infected for 1 turn. ",Imp,Letchin,2,3:4,2:4,4,3,1,2,3,1,,L-13
+14,Rotten Wing Pest,Letchin,Common,Fire,Flight,Imp,Letchin,2,3:4,2:4,4,3,1,2,3,1,,L-14
+15,Blighted Skyrat,Letchin,Common,Fire,"Flight
+Plague 1 (When this unit deals damage to an anima% it becomes infected for 1 turn.)",Imp,Letchin,2,3:4,2:4,4,3,1,2,5,P1,,L-15
+16,Bracket Back Zombie,Letchin,Uncommon ,Earth,When cardname is spawned% it's combatant spawns an enemy. ,Undead,Letchin,3,4:4,3:4,2,3,1,2,4,1,,L-16
+17,Fungal Bloom Corpse,Letchin,Uncommon ,Earth,Plague 2 (When this unit deals damage to an anima% it becomes infected for 2 turns.),Undead,Letchin,2,3:6,2:6,3,3,1,2,4,1,,L-17
+18,Tangle-Flesh Grunt,Letchin,Uncommon ,Earth,Dash,Goblin,Letchin,3,3:4,2:6,4,2,1,2,4,1,,L-18
+19,Developed Broodpod,Letchin,Uncommon ,Earth,When Developed Broodpod is spawned create a size 1 Letchling unit with% 2 HP% 3:4 atk% 3:4 def% 3 spd% 3 move% and 2 actions% it is spawned on a space nearest to the anima combating Developed Broodpod.,Orc,Letchin,4,4:4,3:4,2,3,1,2,6,P1,,L-19
+20,Muddied Sporevein,Letchin,Uncommon ,Earth,Plague 2 (When this unit deals damage to an anima% it becomes infected for 2 turns.),Orc,Letchin,3,2:8,1:8,3,3,1,2,6,P1,,L-20
+21,Spawning Rot-Fang,Letchin,Uncommon ,Nature,When Spawning Rot-Fang is spawned create 2 size 1 Spider unit with% 1 HP% 3:4 atk% 1:6 def% 4 spd% 3 move% 2 actions% and plague 1% they join the board on spaces nearest to the anima combating Spawning Rot-Fang.,Spider,Letchin,2,3:6,3:4,3,3,1,2,6,P1,,L-21
+22,Deadwood Brute,Letchin,Uncommon ,Nature,Plague 1 (When this unit deals damage to an anima% it becomes infected for 1 turn.),Elf,Letchin,3,4:4,3:4,5,3,1,2,5,1,,L-22
+23,Old-Wound Letch,Letchin,Uncommon ,Nature,"Plague 2 (When this unit deals damage to an anima% it becomes infected for 2 turns.)
+When Old-Wound Letch dies% each adjacent non-letchin anima becomes infected for 1 turn. ",Human ,Letchin,3,3:6,3:4,3,3,1,2,4,P1,,L-23
+24,Frilled-Flesh Goblin,Letchin,Uncommon ,Fire ,Plague 1 (When this unit deals damage to an anima% it becomes infected for 1 turn.),Goblin,Letchin,4,4:4,2:6,3,3,1,2,4,1,,L-24
+25,Explosive Letch,Letchin,Uncommon ,Fire,When Explosive Letch dies% it deals 1 infection damage to each anima near it.,Human,Letchin,2,4:4,2:6,4,4,1,2,4,1,,L-25
+26,Hollow Beast,Letchin,Rare,Earth,Whenever Hollow Beast attacks% defending animas become infected for 1 turn at the end of combat.,Undead,Letchin,3,4:6,3:6,2,3,1,2,7,P2,,L-26
+27,Cored Spore-Witch,Letchin,Rare,Earth,"Aversion (This anima moves away from pursuits.)
+All anima within five spaces of Cored Spore-Witch have their defense reduced by 1.",Human,Letchin,2,2:6,2:6,2,3,1,2,6,P1,,L-27
+28,Putrid Swiftskin,Letchin,Rare,Earth,"Dash
+Plague 3 (When this unit deals damage to an anima% it becomes infected for 3 turns.)",Goblin,Letchin,3,3:6,3:6,4,2,1,2,6,P1,,L-28
+29,Vassal of the Deadwood,Letchin,Rare,Nature,"Plague 2 (When this unit deals damage to an anima% it becomes infected for 2 turns.)
+If damage would be dealt to Vassal of the Deadwood while there are other Letchin on the board% that damage is dealt to one of them% assigned at random% instead.",Orc,Letchin,2,4:8,2:8,3,3,1,2,8,P2,,L-29
+30,Creaking Sporescale,Letchin,Rare,Fire,"Flight
+At turns end each non-letchin anima near CARDNAME becomes infected until the next turns end.",Drakkin,Letchin,3,4:10,3:8,3,3,1,2,8,P3,,L-30
+31,Fungal Fanatic ,Letchin,U,Earth,"Plague 3 (When this unit deals damage to an anima% it becomes infected for 3 turns.)
+When CARTDNAME is dealt attack damage it deals 1 direct infect damage to the attacking anima",Goblin,Letchin,5,3:4,2:6,4,3,1,2,7,P1,P1,L-31
+32,Red Mite Mob,Letchin,U,Nature,"When Red Mite Mob is spawned create two copies of it
+At each turns end% create a copy Red Mite Mob.",Spider,Letchin,1,3:4,2:6,3,3,1,2,4,1,,L-32
+33,Letch-Covered Valais,Letchin,U,Fire,When Letch-Covered Valais dies% create four size 1 Letchling unit with% 2 HP% 3:4 atk% 3:4 def% 3 spd% 3 move% and 2 actions% they spawn on random spaces near Letch-Covered Valais'.,Goat,Letchin,2,2:4,2:4,3,3,1,2,7,P1,P1,L-33
+34,Gill-Back Intimidator,Letchin,R,Earth,"Plague 1 (When this unit deals damage to an anima% it becomes infected for 1 turn.)
+Whenever a unit is dealt attack damage by CARDNAME it will retreat during its next movement.",Orc,Letchin,3,4:8,3:6,3,3,1,2,8,P1,P1,L-34
+35,Pestilence Nil,Letchin,R,Earth,"Plague 1 (When this unit deals damage to an anima% it becomes infected for 1 turn.)
+Each space CARDNAME traverses becomes a plauge space. (Whenever a non-letchin anima tranverses a plauge space they become infected for 1 turn.)",Undead,Letchin,3,4:6,3:6,2,3,1,2,7,P1,P1,L-35
+36,Venom-Silk Scythe Bug,Letchin,R,Nature,"Lethal aim
+Plague 1 (When this unit deals damage to an anima% it becomes infected for 1 turn.)
+At each turns end CARDNAME deals 1 direct damage to a random unit within two spaces of it.",Spider,Letchin,1,4:4,2:8,4,3,1,2,8,P2,P1,L-36
+37,Molting Cave Crawler,Letchin,R,Nature,Whenever CARDNAME is dealt damage% teleport it near a random anima in your party% then create a size 1 Letchling unit with% 2 HP% 3:4 atk% 3:4 def% 3 spd% 3 move% and 2 actions% where it was.,Serpent ,Letchin,4,4:6,3:6,5,3,1,2,8,P1,P1,L-37
+38,Plague Sire,Letchin,R,Fire,Letchin have plague 1 and get +1 to their base attack.,Titan,Letchin,3,3:10,2:8,2,3,1,2,8,P1,P1,L-38
+39,Sporeskin Arachnid,Letchin,M,Nature,"Plague 2 (When this unit deals damage to an anima% it becomes infected for 2 turns.)
+Slash 3
+When cardname is attacked and isn't dealt damage% it deals 1 infection damage to the attacking anima.",Spider,Letchin,3,4:6,2:10,3,3,2,2,10,P2,P1,L-39
+40,Eviscerating Deathwing,Letchin,M,Fire,"Flight
+At each turns end% choose a random space with a non-Letchin anima on it within 5 spaces of CARDNAME% that space% and all nearby storage become infection spaces. ",Dragon,Letchin,3,3:8,2:8,2,3,2,2,12,P2,P1,L-40
+41,Red Mite Queen,Letchin,Mythic,Nature,When CARDNAME  attacks% create a size 1 Spider unit with% 1 HP% 3:4 atk% 1:6 def% 4 spd% 3 move% 2 actions% and plague 1% they join the board on spaces nearest to a random anima combating Cardname% it joins the board attacking that anima.,Spider,Letchin,6,2:10,3:8,2,3,3,2,20,P3,P2,L-41
+42,Yrac the Hellspore Toad,Letchin,Mythic,Earth,"Plague 3 (When this unit deals damage to an anima% it becomes infected for 3 turns.)
+Whenever an anima loses HP from an infection effect% for the first time each turn% CARDNAME gains 1 HP.",Undead Nephlim ,Letchin,6,2:20,3:10,2,3,3,2,25,P3,P2,L-42

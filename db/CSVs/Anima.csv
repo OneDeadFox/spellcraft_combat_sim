@@ -1,0 +1,50 @@
+number,name,card_type,rarity,element_type,ability,race,class,cost,card_class,casting_rng,plot_spd,hp,atk,def,spd,movement,size,action,slot,marker
+1,Flying Nuisance,Unit,C,Fire,Flight (This anima can pass over non-traversable spaces as long as it's destination is traversable. While this anima isn't attacking% it is 1 space above the ground.),Imp,,1,Bookmark 2,3,1,2,2:4,1:4,4,3,1,2,0,A-1
+2,Hot-Stone Hogling,Unit,C,Earth,Add 1 to Hot-Stone Hogling's base attack if it is near a lava or stone tile. (To be near a board piece is to be on or adjacent to it.),Goblin,Warrior,2,Recursive,3,1,3,3:4,2:4,3,3,1,2,1,A-2
+3,Basalt-Blood Nil,Unit,C,Fire/Earth,If Basalt-Blood Nil would die% you may remove a nearby lava tile from the board instead. If you do% Basalt-Blood Nhil's HP becomes 1 (To be near a board piece is to be on or adjacent to it.),Undead,,4,Recursive,3,1,3,4:4,3:4,2,3,1,2,2,A-3
+4,Immolation Pest,Unit,U,Fire,"Flight (This anima can pass over non-traversable spaces as long as it's destination is traversable. Units without flight cannot initiate combat with this anima)
+When Immolation Pest dies% it deals 1 direct fire damage to target enemy anima in an adjacent space.",Imp,,2,One-Time,3,1,2,3:4,3:4,5,3,1,2,0,A-4
+5,Hu-Dyi Firewalker,Unit,U,Fire,"Dash (this anima may move twice each turn.)
+Place a lava tile on each space Hu-Dyi Firewalker lands on (Board pieces land on spaces where its movement stops.)",Manifest,Warrior,3,Bookmark 3,3,1,3,3:6,2:6,4,2,1,2,1,A-5
+6,Erzog Stone-Caster,Unit,U,Earth,{A}{A}: Erzog Stone-Caster deals 6 defendable damage to target enemy anima within four spaces. If damage is dealt this way% that animas space becomes a stone tile.,Human,Shaman,5,Recursive,4,1,4,4:4,3:4,3,3,1,2,1,A-6
+7,Hu-Dyi Igniter,Unit,R,Fire,{A}{A}: Hu-Dyi Igniter deals 1 direct fire damage to target enemy anima within four spaces. Than animas space becomes a lava tile.,Manifest,Shaman,7,Recursive,3,1,3,3:4,3:4,3,4,1,2,3,A-7
+8,Amitos Shambler,Unit,R,Earth,When Amitos Shambler dies% create two copies of it with half the HP%  half base atk and def% and this ability. (Copies of a board piece count as associated board assets.) (If a copy would join the board with less than 1 HP% it is vanquished instead.),Undead,Warrior,8,Recursive,4,2,3,4:4,4:4,2,3,1,2,2,A-8
+9,Flameborn Executor,Unit,M,Fire,"Overwhelm (Whenever this anima deals excess damage to an enemy anima% you may assign the excess damage to an anima adjacent to it as attack damage.)
+When you roll the lowest number of this animas def modifier% vanquish it% it deals 1 direct fire damage to each anima in nearby spaces. Each nearby space becomes a lava tile for the next two turns.",Manifest,Warrior,8,One-time,3,1,3,4:6,3:6,5,4,1,2,3,A-9
+10,Kulth% the Immolator,Unit,M,Fire,"Flight (This anima can pass over non-traversable spaces as long as it's destination is traversable. Units without flight cannot initiate combat with this anima)
+While% Kulth is moving you may spend its action and create a line of four lava tiles in any direction along its movement path. Remove these tiles after two turns. ",Dragon,,9,One-time,3,2,5,5:8,1:12,3,3,2,2,0,A-10
+11,Lahar Titan,Unit,M,Fire/Earth,"Slash 2 (When this anima attacks% you may have it deal its attack damage to up to 2 adjacent units. Only one enemy anima may counterstrike.)
+As long as Lahar Titan is on a lava tile% you may spend its action and move it to any lava tile within five spaces. (This effect counts as a movement.)",Undead Titan,,10,Recursive,4,2,3,4:10,2:10,1,3,2,2,1,A-11
+12,Swiftfin Initiate,Unit,C,Water,Swim (This anima may spend an action to traverse any number. If you do% only anima with swim can count strike it.),Marrow,Soldier,2,Bookmark 3,3,1,3,3:4,2:4,3,3,1,2,2,A-12
+13,Clearwood Archer,Unit,C,Nature,Range 3 (This anima can attack board pieces up to 3 spaces away.),Elf,Archer,2,Recursive,3,1,2,3:4,1:4,4,3,1,2,1,A-13
+14,Ungari Wave-Waker,Unit,C,Water/Nature,"Sneak (At the end of your plot phase% this anima may spend an action to move it as an evasive movement. If you do% it's speed becomes 6 until turns end and it may traverse% but not land on% occupied spaces.)
+Each space Ungari Wave-Waker lands on becomes a water tile. (Landing is where a board piece movement stops.)",Manifest ,,5,Recursive,3,1,3,4:4,3:4,4,3,1,2,1,A-14
+15,Porttolva Mystic,Unit,U,Water,"Swim (This anima may spend an action to traverse any number. If you do% only anima with swim can count strike it.)
+Water strike (Whenever this anima would deal damage to a fire anima% it deals that much damage plus an additional 1 damage instead.)
+{A}{A}: Create a line of three water tiles in an adjacent space. ",Marrow,Shaman,6,Bookmark 2,3,1,3,3:4,3:4,3,3,1,2,2,A-15
+16,Brood Charmer,Unit,U,Nature,"Imbue {N}{N} (Discard this card% add {N}{N} to your wellspring. Use this ability only during your plot phases. You may imbue only once per turn.)
+{A}{4}: Create a size 1 Serpent unit with% 2 HP% 2:4 atk% 2:4 def% 4 spd% 3 move% and 2 actions% near Brood Charmer.",Naga,Shaman,3,One-time ,2,1,2,2:4,2:4,4,3,1,2,1,A-16
+17,Bog Mare,Unit,R,Water,"Swim (This anima may spend an action to traverse any number. If you do% only anima with swim can count strike it.)
+When Bog Mare dies you may place a water tile on four nearby spaces.",Amphil,,6,Bookmark 2,3,3,3,3:6,2:6,2,3,1,2,3,A-17
+18,Sevena Warcaller,Unit,R,Nature,Once per turn% you may have an attacking anima you control within four spaces of Sevena Warcaller get 2 added to their base atk.,Elf,Warrior,3,Recursive ,3,1,3,3:4,2:6,3,3,1,2,0,A-18
+19,Dradara% of the Wreckage,Unit,M,Water,"Swim (This anima may spend an action to traverse any number. If you do% only anima with swim can count strike it.)
+Overwhelm (Whenever this anima deals excess damage to an enemy anima% you may assign the excess damage to an anima adjacent to it as attack damage.)
+As long as Dradara is in a water tile it has ""{A}{3}: Create a line of three water tiles starting in an adjacent space. Remove those tiles after two turns.""",Leviathan ,,10,Recursive ,1,1,4,4:12,1:12,1,2,2,2,0,A-19
+20,Oakenvein Mother ,Unit,M,Nature,Whenever you cast an anima spell% create a size 1 Seedling dryadling anima with 2 HP% 3:4 atk% 1:6 def% 2 spd% 3 move% and 2 actions% near Oakenvein Mother.,Dryad,,9,One-time ,3,1,4,4:4,3:8,2,3,2,2,2,A-20
+21,Clearwood Hydra,Unit,M,Water/Nature,"Clearwood Hydra joins the board with three head tokens. 
+Whenever Clearwood Hydra would take damage% you may remove a head counter from it instead. If you do% create a size 1 Serpent unit with% 2 HP% 2:4 atk% 2:4 def% 4 spd% 3 move% and 2 actions% near Clearwood Hydra.",Hydra,,8,One-time ,3,2,3,3:8,2:8,3,3,1,2,1,A-21
+22,Successful Coward,Unit,C,Earth,Flee (This anima cannot be attacked while retreating.),Goblin,Warrior,1,One-time,3,1,2,2:4,2:4,3,3,1,2,1,A-22
+23,Scrap Instigator,Unit,C,Earth,When this anima joins the board% up to one nearby anima you control gets +1 to its base atk or def until turns end.,Satyr,Warrior ,3,Bookmark 2,3,1,3,3:4,3:4,3,3,1,2,2,A-23
+24,Elven Sureshot ,Unit,C,Nature,Range 3 (This anima can attack assets up to 3 spaces away.),Elf,Warrior Archer,3,Recursive,3,1,2,3:4,2:4,5,3,1,2,1,A-24
+25,Timely Spearrunner ,Unit,C,Earth/Nature,Dash (this anima may move twice each turn.),Human ,Warrior ,4,Recursive ,3,1,3,4:4,3:4,4,3,1,2,1,A-25
+26,Gulch Giant,Unit,U,Earth,"Overwhelm (Whenever this anima deals excess damage to an enemy anima% you may assign the excess damage to an anima adjacent to it as attack damage.)
+Whenever Gulch Giant attacks for the first time each combat% you may reroll its atk modifier as long as you control another warrior within three spaces of Gulch Giant. ",Titan,Warrior ,6,Recursive ,2,1,3,3:6,2:6,2,3,1,2,1,A-26
+27,Kypria Southpaw,Unit,U,Nature,Slash 2 (When this anima attacks% you may have it deal its attack damage to up to 2 adjacent units. Only one enemy anima may counterstrike.),Urside,Warrior ,4,Bookmark 3,3,2,3,4:4,3:4,3,3,1,2,2,A-27
+28,Sevana Fallen,Unit,U,Nature,"Warriors you control within four spaces of Sevana Fallen have ""critical hit (Whenever you roll the highest number of this animas attack modifier% double the amount of damage this anima would deal this combat.)""",Elf,Berserker ,3,One-time ,3,2,2,3:4,5:0,3,3,1,2,0,A-28
+29,Gulch Battle-Master,Unit,R,Earth,"Warriors you control within four spaces of Gulch Battle-Master have ""Whenever this anima attacks for the first time each combat% you may reroll its atk modifier% and Initiative (This anima can use actions it's first turn on the board.)""",Goblin,Shaman ,3,One-time ,2,3,3,2:4,2:4,4,3,1,1,1,A-29
+30,Stouthoof Banner-Runner,Unit,R,Earth/Nature,If attack damage would be dealt to a warrior you control within four spaces of Stouthoof Banner-Runner% that damage is reduced by half rounded up.,Centaur,Warrior,7,Recursive ,3,1,3,4:4,3:4,4,3,1,2,1,A-30
+31,Lithon Rage-Rock,Unit,M,Earth,When Lithon Rage-Rock attacks roll X addition d4 atk modifiers where X is its base HP minus its current HP.,Manifest ,,8,One-time ,3,1,5,4:4,3:4,3,3,2,2,0,A-31
+32,Utahn% Bloodwood Baron ,Unit,M,Nature,"Whenever Utahn attacks% put a rage token on it. 
+For every three rage tokens on Uthan% anima you control within 4 spaces of it have base attack increased by 1. This effect cannot increase a base attack to more than twice is original value. ",Dryad,Warrior ,9,One-time ,3,2,4,3:8,2:6,2,3,1,2,2,A-32
+33,Klond% Legion's Bane,Unit,M,Earth/Nature,"Slash 3 (When this anima attacks% you may have it deal its attack damage to up to 3 adjacent units. Only one enemy anima may counterstrike.)
+Critical hit (Whenever you roll the highest number of this animas attack modifier% double the amount of damage this anima would deal this combat.)",Nephilim,Warrior,10,Bookmark 2,3,2,3,4:8,4:4,4,3,1,2,3,A-33

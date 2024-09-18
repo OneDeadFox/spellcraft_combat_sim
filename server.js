@@ -49,6 +49,8 @@ const hbs = exphbs.create({});
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
+app.use(express.static('public'))
+
 app.use(allRoutes);
 
 // shows all active sessions
@@ -62,4 +64,3 @@ sequelize.sync({ force: false }).then(function () {
         console.log("App listening on PORT " + PORT);
     });
 });
-

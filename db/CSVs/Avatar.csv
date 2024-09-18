@@ -1,0 +1,7 @@
+number,name,card_type,rarity,element_type,ability,race,class,hp,atk,def,spd,movement,size,action,slot,marker
+1,Treb% Elves-Bane,Avatar,M,Fire/Earth,"Whenever a unit you control dies% You may place an element tile that was one of that units element types on the space it was on and two adjacent spaces.
+If your other anima% within five spaces% are near a tile that shares an element type with them% add 1 to their base atk and def (To be near a board piece is to be on or adjacent to it.)",Orc,Mægwright Warrior,24,3:6,2:6,3,3,1,3,3,Av-1
+2,Rytel% Mire-Tender,Avatar ,M,Water/Nature ,"Swim (This anima may spend an action to traverse any number. If you do% only anima with swim can count strike it.)
+Anima you control receive no disadvantage from being on water tiles. 
+Whenever you place one or more water tiles draw a card. ",Marrow,Mægwright Shaman ,24,3:4,2:6,3,3,1,3,3,Av-2
+3,Usojah% Voice of Vigor,Avatar,M,Earth/Nature,"Warriors you control have ""Whenever this anima is dealt attack damage% its base atk is increased by 1 until turns end% and it gets an extra action this turn. This effect occurs only once each turn.""",Human,Mægwright Warrior,24,3:6,2:6,3,3,1,3,3,Av-3

@@ -1,6 +1,6 @@
 export class Anima {
-    constructor(
-        atk, 
+    constructor( 
+        number,
         name, 
         cardType, 
         rarity, 
@@ -12,6 +12,7 @@ export class Anima {
         castingRange, 
         plotSpeed, 
         hp,
+        atk,
         def,
         spd,
         movement,
@@ -20,6 +21,7 @@ export class Anima {
         slot,
         marker
     ) {
+        this.number = number
         this.name = name;
         this.cardType = cardType;
         this.rarity = rarity;
