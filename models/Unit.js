@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Anima extends Model { }
+class Unit extends Model { }
 
-Anima.init(
+Unit.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -103,4 +103,4 @@ Anima.init(
     }
 );
 
-module.exports = Anima
+module.exports = Unit

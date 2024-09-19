@@ -1,5 +1,4 @@
-import {Anima} from "./Classes/Anima.js";
-
+import * as Unit from './Classes/Unit.js'
 //bootstrap dropdowns
 const dropdownElementList = document.querySelectorAll('.dropdown-toggle')
 const dropdownList = [...dropdownElementList].map(dropdownToggleEl => new bootstrap.Dropdown(dropdownToggleEl))
@@ -26,4 +25,11 @@ for (let i = 0; i < spdListArray.length; i++) {
     li.setAttribute("class", "dropdown-item");
     li.innerText = spd;
     animaSpdList.appendChild(li);
+}
+
+getUnitList();
+
+const getUnitList = async function (){
+    const unitList = await fetch('/asset/unit');
+    console.log(unitList);
 }

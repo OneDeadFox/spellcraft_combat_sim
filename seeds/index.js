@@ -1,4 +1,4 @@
-const seedAnima = require('./anima-seeds');
+const seedUnit = require('./unit-seeds');
 const seedAvatar = require('./avatar-seeds');
 const seedLetchin = require('./letchin-seeds');
 
@@ -8,7 +8,7 @@ const seedAll = async () => {
     await sequelize.sync({force: true});
     console.log("\n----- DATABASE SYNCED -----\n");
 
-    await seedAnima();
+    await seedUnit();
     console.log("\n----- ANIMA SEEDED -----\n");
 
     await seedAvatar();

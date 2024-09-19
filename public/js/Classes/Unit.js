@@ -1,4 +1,4 @@
-export class Anima {
+export class Unit {
     constructor( 
         number,
         name, 
