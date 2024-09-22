@@ -1,4 +1,4 @@
-number,name,card_type,rarity,element_type,ability,race,class,cost,card_class,casting_rng,plot_spd,hp,atk,def,spd,movement,size,action,slot,marker
+number,name,card_type,rarity,element_type,ability,race,anima_class,cost,card_class,casting_rng,plot_spd,hp,atk,def,spd,movement,size,action,slot,marker
 1,Flying Nuisance,Unit,C,Fire,Flight (This anima can pass over non-traversable spaces as long as it's destination is traversable. While this anima isn't attacking% it is 1 space above the ground.),Imp,,1,Bookmark 2,3,1,2,2:4,1:4,4,3,1,2,0,A-1
 2,Hot-Stone Hogling,Unit,C,Earth,Add 1 to Hot-Stone Hogling's base attack if it is near a lava or stone tile. (To be near a board piece is to be on or adjacent to it.),Goblin,Warrior,2,Recursive,3,1,3,3:4,2:4,3,3,1,2,1,A-2
 3,Basalt-Blood Nil,Unit,C,Fire/Earth,If Basalt-Blood Nil would die% you may remove a nearby lava tile from the board instead. If you do% Basalt-Blood Nhil's HP becomes 1 (To be near a board piece is to be on or adjacent to it.),Undead,,4,Recursive,3,1,3,4:4,3:4,2,3,1,2,2,A-3

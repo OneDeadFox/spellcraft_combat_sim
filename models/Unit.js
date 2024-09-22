@@ -41,7 +41,7 @@ Unit.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        class: {
+        anima_class: {
             type: DataTypes.STRING,
             allowNull: true,
         },

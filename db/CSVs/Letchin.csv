@@ -1,4 +1,4 @@
-number,name,card_type,rarity,element_type,ability,race,class,hp,atk,def,spd,movement,size,action,wells_added,cards_drawn,treasures_drawn,marker
+number,name,card_type,rarity,element_type,ability,race,anima_class,hp,atk,def,spd,movement,size,action,wells_added,cards_drawn,treasures_drawn,marker
 1,Gill-Face Brute ,Letchin,Common,Earth,,Undead,Letchin,3,4:4,3:4,2,3,1,2,3,1,,L-1
 2,Rotted Carrier ,Letchin,Common,Earth,Plague 1 (When this unit deals damage to an anima% it becomes infected for 1 turn.),Undead,Letchin,2,3:4,3:4,3,3,1,2,3,1,,L-2
 3,Awakened Letchin,Letchin,Common,Earth,Dash,Human,Letchin,3,3:4,2:4,4,2,1,2,3,1,,L-3
