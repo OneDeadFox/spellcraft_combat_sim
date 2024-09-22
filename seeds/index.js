@@ -1,6 +1,7 @@
 const seedUnit = require('./unit-seeds');
 const seedAvatar = require('./avatar-seeds');
 const seedLetchin = require('./letchin-seeds');
+const seedMockUp = require('./mockup-seeds');
 
 const sequelize = require('../config/connection');
 
@@ -16,6 +17,9 @@ const seedAll = async () => {
 
     await seedLetchin();
     console.log("\n----- LETCHIN SEEDED -----\n");
+
+    await seedMockUp();
+    console.log("\n----- MOCKUP SEEDED -----\n");
 
     process.exit(0);
 };

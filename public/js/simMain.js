@@ -27,11 +27,8 @@ let combatants = [];
 let enemies = [];
 
 //init sim vars
-let animaOneId = 0;
-let animaTwoId = 0;
-let animaThreeId = 0;
-let enemyId = 0;
 let round = 0;
+const gridArray = [];
 
 //EVENT LISTENERS--------------------------------
 if (document.body.addEventListener) {
@@ -78,9 +75,9 @@ async function dropdownItemClicked(e) {
                 if (allAssets[currentIndex].card_type === 'Unit') {
                     const currentAnima = await getUnit(allAssets[currentIndex].id);
                     const anima = new Unit(currentAnima);
-                    
+
                     //separate enemies from combatants
-                    if(i === selectionArray.length - 1) {
+                    if (i === selectionArray.length - 1) {
                         enemies.push(anima);
                     } else {
                         combatants.push(anima);
@@ -168,90 +165,135 @@ const setUpDropdowns = async function (assetsArr) {
 
 getUnitList();
 
-const runSim = function(combatants, enemies, simCount) {
+//INIT SIM---------------------------------------
+const runSim = function (combatants, enemies, simCount) {
+    //Create grid array
+    for (let i = 0; i < combatants.length + 1; i++) {
+        let row = []
+        for (let j = 0; j < enemies.length; j++) {
+            if (i === 0) {
+                row.push('');
+                row.push(enemies[j].name);
+            } else {
+                row.push('');
+            }
+        }
+        if (i === 0){
+        gridArray.push(row);
+        } else {
+            row.unshift(combatants[0].name);
+            gridArray.push(row);
+        }
+    }
+    console.log(gridArray);
+
+    //track the number of rounds
     round = 0;
-    while(round < simCount) {
+    while (round < simCount) {
+        //para{3} always needs to be 0
         combat(combatants, enemies, 0);
     }
 }
 
-// const combat = function(combatants, enemies, turn) {
-//     //global combat vars
-//     let totalDamage = 0;
-//     let defense = 0;
-//     const attackers = combatants.slice();
-//     const defenders = enemies.slice(); 
-//     let defender = defenders[0];
+//COMBAT-------------------------------------------
+const combat = function (combatants, enemies, turn) {
+    //global combat vars
+    let totalDamage = 0;
+    let defense = 0;
+    const attackers = combatants.slice();
+    const defenders = enemies.slice();
+    let defender = defenders[0];
 
-//     console.log(attackers[0].name);
-//     //get total damage for the turn
-//     attackers.forEach(combatant => {
-//         const thisCombatantDamage = combatant.getAtkDamage();
-//         totalDamage += thisCombatantDamage;
-//         console.log('thisCombatantDamage: ' + thisCombatantDamage)
-//         console.log('totalDamage: ' + totalDamage)
-//     });
+    console.log(attackers[0].name);
+    //get total damage for the turn
+    attackers.forEach(combatant => {
+        const thisCombatantDamage = combatant.getAtkDamage();
+        totalDamage += thisCombatantDamage;
+        console.log('thisCombatantDamage: ' + thisCombatantDamage)
+        console.log('totalDamage: ' + totalDamage)
+    });
 
-//     //set a target is there are multiple defenders
-//     if(attackers.length > 0 && !attackers[0].target){
-//         attackers[0].pickTarget(defenders);
-//         defenders[attackers[0].target].setTarget();
-//     }
+    //set a target is there are multiple defenders
+    if (attackers.length > 0 && !attackers[0].target) {
+        attackers[0].pickTarget(defenders);
+        defenders[attackers[0].target].setTarget();
+    }
 
-//     //get def for the turn
-//     if(attackers[0].hasTarget) {
-//         defender = defenders[attackers[0].target]
-//         defense = defender.getDefense();
-//         console.log("defense: " + defense);
-//     } else {
-//         defense = defender.getDefense();
-//         console.log("defense: " + defense);
-//     }
+    //get def for the turn
+    if (attackers[0].hasTarget) {
+        defender = defenders[attackers[0].target]
+        defense = defender.getDefense();
+        console.log("defense: " + defense);
+    } else {
+        defense = defender.getDefense();
+        console.log("defense: " + defense);
+    }
 
-//     //apply and track damage
-//     if(totalDamage > defense) {
-//         console.log('pre damage defenderHp: ' + defender.hp)
-//         defender.takeDamage(totalDamage - defense);
-//         attackers.forEach(attacker => {
-//             let damageFraction = Math.round(attacker.storedAtk - defense/attackers.length);
-//             if (damageFraction > 0) {
-//                 attacker.upTotalDamage(damageFraction);
-//             }
-//             console.log('defenderHp: ' + defender.hp)
-//         });
-//     } else if (defense > totalDamage) {
-//         console.log('no damage to report');
-//         defender.upTotalExcessDefense(defense - totalDamage);
-//     }
+    //apply and track damage
+    if (totalDamage > defense) {
+        console.log('pre damage defenderHp: ' + defender.hp)
+        defender.takeDamage(totalDamage - defense);
+        attackers.forEach(attacker => {
+            let damageFraction = Math.round(attacker.storedAtk - defense / attackers.length);
+            if (damageFraction > 0) {
+                attacker.upTotalDamage(damageFraction);
+            }
+            console.log('defenderHp: ' + defender.hp)
+        });
+    } else if (defense > totalDamage) {
+        console.log('no damage to report');
+        defender.upTotalExcessDefense(defense - totalDamage);
+    }
 
-//     if (defender.isAlive()) {
-//         if(turn % 2 === 0) {
-//             turn ++;
-//             console.log('combatnat Name' + attackers[0].name);
-//             combat(combatants, enemies, turn);
-//         } else {
-//             turn++;
-//             console.log('combatnat Name' + attackers[0].name);
-//             if (turn > 3) {
-//                 turn = 0;
-//             }
-//             combat(enemies, combatants, turn);
-//         }
-//     } else {
-//         round++
-//         const defenderIndex = defenders.findIndex(function (anima) {
-//             return anima.name === defender.name;
-//         });
-//         defenders.splice(defenderIndex, 1);
-//         combatants.forEach(attacker => {
-//             attacker.setWinLoss(true);
-//             console.log(attacker.report());
-//             attacker.reset();
-//         });
-//         enemies.forEach(defender => {
-//             defender.setWinLoss(false);
-//             console.log(defender.report());
-//             defender.reset();
-//         });
-//     }
-// }
+    if (defender.isAlive()) {
+        if (turn % 2 === 0) {
+            turn++;
+            console.log('combatnat Name' + attackers[0].name);
+            combat(combatants, enemies, turn);
+        } else {
+            turn++;
+            console.log('combatnat Name' + attackers[0].name);
+            if (turn > 3) {
+                turn = 0;
+            }
+            combat(enemies, combatants, turn);
+        }
+    } else {
+        //End the round
+        round++
+        const defenderIndex = defenders.findIndex(function (anima) {
+            return anima.name === defender.name;
+        });
+        defenders.splice(defenderIndex, 1);
+
+        //set win/loss
+        combatants.forEach(attacker => {
+            attacker.setWinLoss(true);
+        });
+        enemies.forEach(defender => {
+            defender.setWinLoss(false);
+        });
+
+        //send reports for comilation
+        combatants.forEach(attacker => {
+            enemies.forEach(defender => {
+                const obj1 = attacker.report();
+                const obj2 = defender.report();
+                compWinLoss(obj1, obj2);
+            });
+        });
+
+        //reset each anima
+        combatants.forEach(attacker => {
+            attacker.reset();
+        });
+        enemies.forEach(defender => {
+            defender.reset();
+        });
+    }
+}
+
+//COMPILE DATA-----------------------------------
+const compWinLoss = (obj1, obj2) => {
+    const obj1WeightedRatio = 
+}

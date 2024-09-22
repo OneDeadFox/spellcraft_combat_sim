@@ -3,6 +3,7 @@ const router = express.Router();
 const Unit = require('../models/Unit');
 const Avatar = require('../models/Avatar');
 const Letchin = require('../models/Letchin');
+const MockUp = require('../models/MockUp');
 
 
 router.get("/unit", async (req, res) => {
@@ -60,5 +61,15 @@ router.get('/letchin/:id', (req, res) => {
         console.log(err);
         return res.status(500).json({msg: "No letchin data found with that id"});
     });
+});
+
+router.get("/mockup", async (req, res) => {
+    try {
+        const mockUpData = await MockUp.findAll();
+        res.json(mockUpData);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ msg: "Error getting all MockUps!" });
+    }
 });
 module.exports = router;
