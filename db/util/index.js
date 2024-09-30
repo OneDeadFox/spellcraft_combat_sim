@@ -103,7 +103,6 @@ async function handleSelections(simType, combatType) {
         }
         //combat type conditions     
         if (combatType === '1 v 1') {
-            mockUpListLength = 10;
             for (let i = 0; i < mockUpListLength - 1; i++) {
                 console.log("i = " + i);
                 for (let j = i + 1; j < mockUpListLength; j++) {
