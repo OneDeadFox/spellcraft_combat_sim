@@ -32,15 +32,16 @@ const gridArray = [];
 
 //EVENT LISTENERS--------------------------------
 if (document.body.addEventListener) {
-    document.body.addEventListener('click', dropdownItemClicked, false);
+    document.body.addEventListener('click', evlController, false);
     //document.body.addEventListener('click', animaSelected, false);
 }
 else {
-    document.body.attachEvent('onclick', dropdownItemClicked);//for IE
+    document.body.attachEvent('onclick', evlController);//for IE
     //document.body.attachEvent('onclick', animaSelected);//for IE
 }
 
-async function dropdownItemClicked(e) {
+//event listener controller
+async function evlController(e) {
     e = e || window.Event;
     var target = e.target || e.srcElement;
     if (target.classList.contains("spd-item")) {
@@ -295,5 +296,5 @@ const combat = function (combatants, enemies, turn) {
 
 //COMPILE DATA-----------------------------------
 const compWinLoss = (obj1, obj2) => {
-    const obj1WeightedRatio = 
+    const obj1WeightedRatio = 0;
 }

@@ -6,6 +6,9 @@ const allRoutes = require("./controllers");
 const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
+//require cors to use fs writer
+const cors = require("cors");
+
 // Sets up the Express App
 // =============================================================
 const app = express();
@@ -41,7 +44,12 @@ app.use(session(sess));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+
+//cors
+app.use(cors());
+
 // Static directory
+app.use(express.static('public'))
 
 
 // initializes the main.handlebars file for all calls in the frontEndController.js file
@@ -49,7 +57,6 @@ const hbs = exphbs.create({});
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
-app.use(express.static('public'))
 
 app.use(allRoutes);
 

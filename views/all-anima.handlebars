@@ -2,46 +2,27 @@
 
 <section id="sim-main" class="container d-flex">
         <section id="sim-header" class="row">
-                <div class="row">
-                        <div id="mock-up-rad" class="form-check"></div>
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault1">
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                        Mock Up
-                                </label>
-                        </div>
-                        <div id="card-rad" class="form-check"></div>
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault1">
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                        Actual Cards
-                                </label>
-                        </div>
-                </div>
-                <div class="row w-100">
-                        <div id="one-v-one-rad" class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault1">
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                        1 v 1
-                                </label>
-                        </div>
-                        <div id="one-v-two-rad" class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault1">
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                        2 v 1
-                                </label>
-                        </div>
-                        <div id="one-v-three-rad" class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault1">
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                        3 v 1
-                                </label>
-                        </div>
-                        <button id="sim-submit" type="button" class="w-50 btn btn-secondary btn-sm">Submit</button>
-                </div>
+                <form id="sim-type-form">
+                        <p>Select Anima Source</p>
+                        <input type="radio" id="mock-up" name="anima-source" value="mockUp" checked>
+                        <label for="mock-up">Mock Up</label>
+                        <br>
+                        <input type="radio" id="card" name="anima-source" value="card">
+                        <label for="card">Actual Cards</label>
+                        <br>
+                        <br>
+                        <p>Select Combat Type</p>
+                        <input type="radio" id="one-v-one" name="combat-type" value="oneVOne" checked>
+                        <label for="one-v-one">1 v 1</label>
+                        <br>
+                        <input type="radio" id="two-v-one" name="combat-type" value="twoVOne">
+                        <label for="two-v-one">2 v 1</label>
+                        <br>
+                        <input type="radio" id="three-v-one" name="combat-type" value="threeVOne">
+                        <label for="three-v-one">3 v 1</label>
+                        <br>
+                        <input type="submit" value="Submit">
+                </form>
         </section>
 </section>
 

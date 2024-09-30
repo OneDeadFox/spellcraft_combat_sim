@@ -1,4 +1,4 @@
-const MockUp = require('../../public/js/Classes/MockUp');
+const MockUp = require('../../public/js/Classes/MockUpUtil');
 const fs = require('fs');
 const inquirer = require('inquirer');
 
@@ -8,8 +8,10 @@ const inquirer = require('inquirer');
 const gridArray = [];
 let round = 0;
 let mockUpList = [];
+let mockUpListLength = 0;
 let numberOfSims = 100;
 let tieCount = 0
+let id = 0;
 
 //mockup arrays
 const hpArray = [2, 3, 4, 5];
@@ -29,9 +31,10 @@ for (let i = 0; i < hpArray.length; i++) {
                 for (let m = 0; m < modArray.length; m++) {
                     //spd
                     for (let n = 0; n < spdArray.length; n++) {
-                        if(baseArray[j] !== 0 || baseArray[l] !== 0){
+                        if (baseArray[j] !== 0 || baseArray[l] !== 0) {
+                            id++
                             const mockUp = {
-                                id: 1+n+n+l+k+j+i,
+                                id: id,
                                 name: `${hpArray[i]}-${baseArray[j]}:${modArray[k]}-${baseArray[l]}:${modArray[m]}-${spdArray[n]}`,
                                 card_type: 'mock_up',
                                 hp: hpArray[i],
@@ -69,18 +72,17 @@ const init = async () => {
             }
         ])
         .then(async (res) => {
-            console.log(res.source)
-            console.log(res.combat)
             handleSelections(res.source, res.combat)
         });
 }
 
 async function handleSelections(simType, combatType) {
+    mockUpListLength = mockUpList.length;
     if (simType === 'Mockup') {
         //Create grid array
-        for (let i = 0; i < mockUpList.length + 1; i++) {
+        for (let i = 0; i < mockUpListLength + 1; i++) {
             let row = []
-            for (let j = 0; j < mockUpList.length; j++) {
+            for (let j = 0; j < mockUpListLength; j++) {
                 if (i === 0) {
                     if (j === 0) {
                         row.push(0);
@@ -101,13 +103,14 @@ async function handleSelections(simType, combatType) {
         }
         //combat type conditions     
         if (combatType === '1 v 1') {
-            for (let i = 0; i < mockUpLis.lengtht - 1; i++) {
+            mockUpListLength = 10;
+            for (let i = 0; i < mockUpListLength - 1; i++) {
                 console.log("i = " + i);
-                for (let j = i + 1; j < mockUpList.length; j++) {
-                    // console.log('j = ' + j)
+                for (let j = i + 1; j < mockUpListLength; j++) {
+                    //console.log('j = ' + j)
                     runSim([mockUpList[i]], [mockUpList[j]], numberOfSims)
                     //check if it is the final itteration
-                    if(j === mockUpList.length - 1 && i === mockUpList.length - 2) {
+                    if (j === mockUpListLength - 1 && i === mockUpListLength - 2) {
                         console.log('Prepping CSV Please wait... Like awhile... Maybe days lol')
                         createCSV();
                     }
@@ -132,6 +135,7 @@ async function handleSelections(simType, combatType) {
 //INIT SIM---------------------------------------
 const runSim = function (combatants, enemies, simCount) {
     //use the json data from handleSelections to create Classes
+
     for (let i = 0; i < combatants.length; i++) {
         const combatant = combatants[i];
         const anima = new MockUp(mockUpList[combatant.id - 1]);
@@ -166,24 +170,28 @@ const combat = function (combatants, enemies, turn) {
     let defense = 0;
     const attackers = combatants.slice();
     const defenders = enemies.slice();
+    const attackersLength = attackers.length;
+    const defendersLength = defenders.length;
     let defender = defenders[0];
 
     // console.log(attackers[0].name);
     //get total damage for the turn
-    attackers.forEach(attaker => {
-        const thisCombatantDamage = attaker.getAtkDamage();
-        attaker.turnCount++
+    for (let i = 0; i < attackersLength; i++) {
+        const attacker = attackers[i];
+        const thisCombatantDamage = attacker.getAtkDamage();
+        attacker.turnCount++
         totalDamage += thisCombatantDamage;
         // console.log('totalDamage: ' + totalDamage)
-    });
+    };
 
     //increase defenders turn count
-    defenders.forEach(defender => {
+    for (let i = 0; i < defendersLength; i++) {
+        const defender = defenders[i];
         defender.turnCount = defender.turnCount
-    })
+    };
 
     //set a target is there are multiple defenders
-    if (attackers.length > 0 && !attackers[0].target) {
+    if (attackersLength > 0 && !attackers[0].target) {
         attackers[0].pickTarget(defenders);
         defenders[attackers[0].target].setTarget();
     }
@@ -202,13 +210,14 @@ const combat = function (combatants, enemies, turn) {
     if (totalDamage > defense) {
         // console.log('pre damage defenderHp: ' + defender.hp)
         defender.takeDamage(totalDamage - defense);
-        attackers.forEach(attacker => {
-            let damageFraction = Math.round(attacker.storedAtk - defense / attackers.length);
+        for (let i = 0; i < attackersLength; i++) {
+            const attacker = attackers[i];
+            let damageFraction = Math.round(attacker.storedAtk - defense / attackersLength);
             if (damageFraction > 0) {
                 attacker.upTotalDamage(damageFraction);
             }
             // console.log('defenderHp: ' + defender.hp)
-        });
+        };
     } else if (defense > totalDamage) {
         // console.log('no damage to report');
         defender.upTotalExcessDefense(defense - totalDamage);
@@ -239,26 +248,39 @@ const combat = function (combatants, enemies, turn) {
         turn++;
 
         //send reports for comilation
-        combatants.forEach(attacker => {
-            enemies.forEach(defender => {
-                const obj1 = attacker.report();
-                const obj2 = defender.report();
-                compWinLoss(obj1, obj2);
-            });
-        });
+        for (let i = 0; i < attackersLength; i++) {
+            const combatant = combatants[i];
+            for (let j = 0; j < defendersLength; j++) {
+                const enemy = enemies[j];
+                const obj1 = combatant.report();
+                const obj2 = enemy.report();
+                compWinLoss(obj1, obj2, round);
+            };
+        };
 
         //reset each anima
-        combatants.forEach(attacker => {
-            attacker.reset();
-        });
-        enemies.forEach(defender => {
-            defender.reset();
-        });
+        for (let i = 0; i < attackersLength; i++) {
+            const combatant = combatants[i];
+            combatant.reset();
+        };
+        for (let i = 0; i < defendersLength; i++) {
+            const enemy = enemies[i];
+            enemy.reset();
+        };
 
         //End the sim if 25% of the combats have resulted in a tie
-        if(tieCount >= numberOfSims/4){
+        if (tieCount >= numberOfSims / 4) {
             tieCount = 0;
             round = numberOfSims;
+            for (let i = 0; i < attackersLength; i++) {
+                const combatant = combatants[i];
+                for (let j = 0; j < defendersLength; j++) {
+                    const enemy = enemies[j];
+                    const obj1 = combatant.report();
+                    const obj2 = enemy.report();
+                    compWinLoss(obj1, obj2, round);
+                };
+            };
         }
     } else if (!defender.isAlive() && !tie) {
         //End the round
@@ -269,33 +291,39 @@ const combat = function (combatants, enemies, turn) {
         defenders.splice(defenderIndex, 1);
 
         //set win/loss
-        combatants.forEach(attacker => {
-            attacker.setWinLoss(true);
-            attacker.hpTracking = attacker.hpTracking + attacker.hp;
-            attacker.turnCountComp = attacker.turnCountComp + attacker.turnCount;
-        });
-        enemies.forEach(defender => {
-            defender.setWinLoss(false);
-            defender.hpTracking = defender.hpTracking + defender.hp;
-            defender.turnCountComp = defender.turnCountComp + defender.turnCount;
-        });
+        for (let i = 0; i < attackersLength; i++) {
+            const combatant = combatants[i];
+            combatant.setWinLoss(true);
+            combatant.hpTracking = combatant.hpTracking + combatant.hp;
+            combatant.turnCountComp = combatant.turnCountComp + combatant.turnCount;
+        };
+        for (let i = 0; i < defendersLength; i++) {
+            const enemy = enemies[i];
+            enemy.setWinLoss(false);
+            enemy.hpTracking = enemy.hpTracking + enemy.hp;
+            enemy.turnCountComp = enemy.turnCountComp + enemy.turnCount;
+        };
 
         //send reports for comilation
-        combatants.forEach(attacker => {
-            enemies.forEach(defender => {
-                const obj1 = attacker.report();
-                const obj2 = defender.report();
+        for (let i = 0; i < attackersLength; i++) {
+            const combatant = combatants[i];
+            for (let j = 0; j < defendersLength; j++) {
+                const enemy = enemies[j];
+                const obj1 = combatant.report();
+                const obj2 = enemy.report();
                 compWinLoss(obj1, obj2, round);
-            });
-        });
+            };
+        };
 
         //reset each anima
-        combatants.forEach(attacker => {
-            attacker.reset();
-        });
-        enemies.forEach(defender => {
-            defender.reset();
-        });
+        for (let i = 0; i < attackersLength; i++) {
+            const combatant = combatants[i];
+            combatant.reset();
+        };
+        for (let i = 0; i < defendersLength; i++) {
+            const enemy = enemies[i];
+            enemy.reset();
+        };
     }
 }
 
@@ -312,16 +340,16 @@ const compWinLoss = (obj1, obj2, i) => {
         const weightSum = wLWeight + wHp + wDam + wDef;
 
         //ratios
-        const obj1WinLossRatio = (obj1.totalWins / numberOfSims)* wLWeight;
+        const obj1WinLossRatio = (obj1.totalWins / numberOfSims) * wLWeight;
         const obj1WeightedHp = obj1.hpTracking / ((obj1.orgHp * numberOfSims) * wHp);
-        const obj1WeightedDam = obj1.totalDamage / (obj1.turnCountComp/2)* wDam;
-        const obj1WeightedDef = (obj1.totalExcessDefense / 10 /(obj1.turnCountComp/2)) * wDef;
+        const obj1WeightedDam = obj1.totalDamage / (obj1.turnCountComp / 2) * wDam;
+        const obj1WeightedDef = (obj1.totalExcessDefense / 10 / (obj1.turnCountComp / 2)) * wDef;
 
-        const obj2WinLossRatio = (obj2.totalWins / numberOfSims)* wLWeight;
+        const obj2WinLossRatio = (obj2.totalWins / numberOfSims) * wLWeight;
         const obj2WeightedHp = obj2.hpTracking / ((obj2.orgHp * numberOfSims) * wHp);
-        const obj2WeightedDam = obj2.totalDamage / (obj2.turnCountComp/2)* wDam;
-        const obj2WeightedDef = (obj2.totalExcessDefense / 10 /(obj2.turnCountComp/2)) * wDef;
-        
+        const obj2WeightedDam = obj2.totalDamage / (obj2.turnCountComp / 2) * wDam;
+        const obj2WeightedDef = (obj2.totalExcessDefense / 10 / (obj2.turnCountComp / 2)) * wDef;
+
         //weighted averages
         const obj1WeightedAverage = (obj1WinLossRatio + obj1WeightedHp + obj1WeightedDam + obj1WeightedDef) / weightSum;
         const obj2WeightedAverage = (obj2WinLossRatio + obj2WeightedHp + obj2WeightedDam + obj2WeightedDef) / weightSum;
@@ -331,16 +359,25 @@ const compWinLoss = (obj1, obj2, i) => {
     }
 }
 
-function createCSV () {
-    let csvContent = "data:text/csv;charset=utf-8," + gridArray.map(e => e.join(",")).join("\n");
-    fs.writeFileSync('./db/CSVs/weighted_win_loss_mockup.csv', csvContent, 'utf8', function (err, data) {
-        if (err) {
-            return console.log(err);
-        } else {
-            console.log(data);
-            return res.json(data);
-        }
-    });
+function createCSV() {
+    console.log(gridArray[1])
+    console.log(gridArray[2])
+    console.log(gridArray[3])
+    console.log(gridArray[4])
+    console.log(gridArray[5])
+    console.log(gridArray[7])
+    console.log(gridArray[8])
+    console.log(gridArray[9])
+    console.log(gridArray[10])
+    // let csvContent = "data:text/csv;charset=utf-8," + gridArray.map(e => e.join(",")).join("\n");
+    // fs.writeFileSync('./db/CSVs/weighted_win_loss_mockup.csv', csvContent, 'utf8', function (err, data) {
+    //     if (err) {
+    //         return console.log(err);
+    //     } else {
+    //         console.log(data);
+    //         return res.json(data);
+    //     }
+    // });
 }
 
 init();

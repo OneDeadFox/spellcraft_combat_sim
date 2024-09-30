@@ -1,4 +1,4 @@
-export default class MockUp {
+class MockUp {
     constructor(obj) {
         const { id, name, card_type, hp, base_atk, atk_mod, base_def, def_mod, spd} = obj;
         this.id = id
@@ -151,3 +151,5 @@ export default class MockUp {
         return (returnObj)
     }
 }
+
+module.exports = MockUp

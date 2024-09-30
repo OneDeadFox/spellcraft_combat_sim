@@ -1,5 +1,4 @@
 const MockUp = require('../models/MockUp.js');
-const fs = require('fs');
 
 //mockup arrays
 const hpArray = [2, 3, 4, 5];
